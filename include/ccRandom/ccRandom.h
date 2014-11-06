@@ -17,3 +17,10 @@
 //      You should have received a copy of the 3-clause BSD License along with      //
 //      this program. If not, see <http://opensource.org/licenses/>.                //
 //__________________________________________________________________________________//
+
+typedef struct {
+	unsigned int *buffer;
+} ccrGenerator;
+
+void ccrSeed(ccrGenerator *generator, unsigned int seed);
+unsigned int ccrGenerateUint(ccrGenerator *generator);
