@@ -1,7 +1,7 @@
 #include <ccRandom/ccRandom.h>
 
-#define CCR_MULTIPY	69069
-#define CCR_ADD		1
+#define CCR_MULTIPY 69069
+#define CCR_ADD     1
 
 void ccrSeed(ccrGenerator *generator, unsigned int seed)
 {
