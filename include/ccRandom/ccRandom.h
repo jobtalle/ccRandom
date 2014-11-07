@@ -18,9 +18,20 @@
 //      this program. If not, see <http://opensource.org/licenses/>.                //
 //__________________________________________________________________________________//
 
+#pragma once
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 typedef struct {
-	unsigned int *buffer;
+	unsigned int seed;
 } ccrGenerator;
 
 void ccrSeed(ccrGenerator *generator, unsigned int seed);
 unsigned int ccrGenerateUint(ccrGenerator *generator);
+
+#ifdef __cplusplus
+}
+#endif
