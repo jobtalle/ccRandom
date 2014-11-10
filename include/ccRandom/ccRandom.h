@@ -20,17 +20,20 @@
 
 #pragma once
 
+#include <stdint.h>
+
 #ifdef __cplusplus
 extern "C"
 {
 #endif
 
-typedef struct {
-	unsigned int seed;
-} ccrGenerator;
+typedef uint32_t ccRandomizer;
 
-void ccrSeed(ccrGenerator *generator, unsigned int seed);
-unsigned int ccrGenerateUint(ccrGenerator *generator);
+void ccrSeed(ccRandomizer *randomizer, unsigned int seed);
+
+unsigned int ccrGenerateUint(ccRandomizer *randomizer);
+float ccrGenerateFloat(ccRandomizer *randomizer);
+double ccrGenerateDouble(ccRandomizer *randomizer);
 
 #ifdef __cplusplus
 }
