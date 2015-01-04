@@ -34,10 +34,13 @@ void ccrSeed64(ccRandomizer64 *randomizer, uint64_t seed);
 
 uint32_t ccrGenerateUint32(ccRandomizer32 *randomizer);
 uint64_t ccrGenerateUint64(ccRandomizer64 *randomizer);
+uint32_t ccrGenerateUintCoordinate(uint32_t seed, int32_t x, int32_t y);
 float ccrGenerateFloat32(ccRandomizer32 *randomizer);
 float ccrGenerateFloat64(ccRandomizer64 *randomizer);
+float ccrGenerateFloatCoordinate(uint32_t seed, int32_t x, int32_t y);
 double ccrGenerateDouble32(ccRandomizer32 *randomizer);
 double ccrGenerateDouble64(ccRandomizer64 *randomizer);
+double ccrGenerateDoubleCoordinate(uint32_t seed, int32_t x, int32_t y);
 
 #ifdef __cplusplus
 }
