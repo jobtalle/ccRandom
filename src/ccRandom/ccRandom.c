@@ -1,13 +1,14 @@
 #include <ccRandom/ccRandom.h>
 
-#define CCR_MULTIPLY_32         69069
-#define CCR_ADD_32              1
-#define CCR_MULTIPLY_64         6364136223846793005
-#define CCR_ADD_64              1
-#define CCR_MULTIPLY_COORDINATE 1103515245
+#define CCR_MULTIPLY_32           69069
+#define CCR_ADD_32                1
+#define CCR_MULTIPLY_64           6364136223846793005
+#define CCR_ADD_64                1
+#define CCR_MULTIPLY_COORDINATE_A 134775813
+#define CCR_MULTIPLY_COORDINATE_B 1103515245
 
 #define CCR_LGC *randomizer = *randomizer * CCR_MULTIPLY_32 + CCR_ADD_32
-#define CCR_CRG ((x + y) ^ seed) * (((CCR_MULTIPLY_COORDINATE * x) << 16) ^ (CCR_MULTIPLY_COORDINATE * y) + CCR_MULTIPLY_COORDINATE)
+#define CCR_CRG (((x ^ y) * CCR_MULTIPLY_COORDINATE_A) ^ seed) * (((CCR_MULTIPLY_COORDINATE_B * x) << 16) ^ (CCR_MULTIPLY_COORDINATE_B * y) - CCR_MULTIPLY_COORDINATE_A)
 
 void ccrSeed32(ccRandomizer32 *randomizer, uint32_t seed)
 {
