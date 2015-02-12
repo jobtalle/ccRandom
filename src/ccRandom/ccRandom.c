@@ -7,7 +7,7 @@
 #define CCR_MULTIPLY_COORDINATE_A 134775813
 #define CCR_MULTIPLY_COORDINATE_B 1103515245
 
-#define CCR_LGC *randomizer = *randomizer * CCR_MULTIPLY_32 + CCR_ADD_32
+#define CCR_LCG *randomizer = *randomizer * CCR_MULTIPLY_32 + CCR_ADD_32
 #define CCR_CRG (((x ^ y) * CCR_MULTIPLY_COORDINATE_A) ^ seed) * (((CCR_MULTIPLY_COORDINATE_B * x) << 16) ^ (CCR_MULTIPLY_COORDINATE_B * y) - CCR_MULTIPLY_COORDINATE_A)
 
 void ccrSeed32(ccRandomizer32 *randomizer, uint32_t seed)
@@ -22,12 +22,12 @@ void ccrSeed64(ccRandomizer64 *randomizer, uint64_t seed)
 
 uint32_t ccrGenerateUint32(ccRandomizer32 *randomizer)
 {
-	return CCR_LGC;
+	return CCR_LCG;
 }
 
 uint64_t ccrGenerateUint64(ccRandomizer64 *randomizer)
 {
-	return CCR_LGC;
+	return CCR_LCG;
 }
 
 uint32_t ccrGenerateUintCoordinate(uint32_t seed, int32_t x, int32_t y)
@@ -37,12 +37,12 @@ uint32_t ccrGenerateUintCoordinate(uint32_t seed, int32_t x, int32_t y)
 
 float ccrGenerateFloat32(ccRandomizer32 *randomizer)
 {
-	return (float)(CCR_LGC) / UINT32_MAX;
+	return (float)(CCR_LCG) / UINT32_MAX;
 }
 
 float ccrGenerateFloat64(ccRandomizer64 *randomizer)
 {
-	return (float)(CCR_LGC) / UINT64_MAX;
+	return (float)(CCR_LCG) / UINT64_MAX;
 }
 
 float ccrGenerateFloatCoordinate(uint32_t seed, int32_t x, int32_t y)
@@ -52,12 +52,12 @@ float ccrGenerateFloatCoordinate(uint32_t seed, int32_t x, int32_t y)
 
 double ccrGenerateDouble32(ccRandomizer32 *randomizer)
 {
-	return (double)(CCR_LGC) / UINT32_MAX;
+	return (double)(CCR_LCG) / UINT32_MAX;
 }
 
 double ccrGenerateDouble64(ccRandomizer64 *randomizer)
 {
-	return (double)(CCR_LGC) / UINT64_MAX;
+	return (double)(CCR_LCG) / UINT64_MAX;
 }
 
 double ccrGenerateDoubleCoordinate(uint32_t seed, int32_t x, int32_t y)
