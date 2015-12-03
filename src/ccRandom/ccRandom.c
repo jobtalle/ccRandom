@@ -7,14 +7,9 @@
 #define CCR_MULTIPLY_COORDINATE_A 134775813
 #define CCR_MULTIPLY_COORDINATE_B 1103515245
 
-<<<<<<< HEAD
-#define CCR_LCG *randomizer = *randomizer * CCR_MULTIPLY_32 + CCR_ADD_32
-#define CCR_CRG (((x ^ y) * CCR_MULTIPLY_COORDINATE_A) ^ (seed + x)) * (((CCR_MULTIPLY_COORDINATE_B * x) << 16) ^ (CCR_MULTIPLY_COORDINATE_B * y) - CCR_MULTIPLY_COORDINATE_A)
-=======
 #define CCR_LCG32 *randomizer = *randomizer * CCR_MULTIPLY_32 + CCR_ADD_32
 #define CCR_LCG64 *randomizer = *randomizer * CCR_MULTIPLY_64 + CCR_ADD_64
-#define CCR_CRG (((x ^ y) * CCR_MULTIPLY_COORDINATE_A) ^ seed) * (((CCR_MULTIPLY_COORDINATE_B * x) << 16) ^ (CCR_MULTIPLY_COORDINATE_B * y) - CCR_MULTIPLY_COORDINATE_A)
->>>>>>> daa41d412c5058fe09016b5e9090adc3be783653
+#define CCR_CRG (((x ^ y) * CCR_MULTIPLY_COORDINATE_A) ^ (seed + x)) * (((CCR_MULTIPLY_COORDINATE_B * x) << 16) ^ (CCR_MULTIPLY_COORDINATE_B * y) - CCR_MULTIPLY_COORDINATE_A)
 
 void ccrSeed32(ccRandomizer32 *randomizer, uint32_t seed)
 {
