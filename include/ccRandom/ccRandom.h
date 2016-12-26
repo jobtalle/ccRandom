@@ -5,7 +5,7 @@
 //               ___ ___| |__) |__ _ _ __   __| | ___  _ __ ___                     //
 //              / __/ __|  _  // _` | '_ \ / _` |/ _ \| '_ ` _ \                    //
 //             | (_| (__| | \ \ (_| | | | | (_| | (_) | | | | | |                   //
-//              \___\___|_|  \_\__,_|_| |_|\__,_|\___/|_| |_| |_| 1.0               //
+//              \___\___|_|  \_\__,_|_| |_|\__,_|\___/|_| |_| |_| 1.1               //
 //                                                                                  //
 //              Copyright (C) 2014 - 2015 \ Job Talle (jobtalle@hotmail.com)        //
 //__________________________________________________________________________________//
@@ -29,18 +29,20 @@ extern "C"
 typedef uint32_t ccRandomizer32;
 typedef uint64_t ccRandomizer64;
 
-void ccrSeed32(ccRandomizer32 *randomizer, uint32_t seed);
-void ccrSeed64(ccRandomizer64 *randomizer, uint64_t seed);
+ccRandomizer32 ccrSeed32(const uint32_t seed);
+ccRandomizer64 ccrSeed64(const uint64_t seed);
 
-uint32_t ccrGenerateUint32(ccRandomizer32 *randomizer);
-uint64_t ccrGenerateUint64(ccRandomizer64 *randomizer);
-uint32_t ccrGenerateUintCoordinate(uint32_t seed, int32_t x, int32_t y);
+uint32_t ccrGenerateSeed32(ccRandomizer32 *randomizer);
+uint64_t ccrGenerateSeed64(ccRandomizer64 *randomizer);
+
+uint32_t ccrGenerateInt32(ccRandomizer32 *randomizer, const uint32_t min, const uint32_t max);
+uint64_t ccrGenerateInt64(ccRandomizer64 *randomizer, const uint64_t min, const uint64_t max);
+
 float ccrGenerateFloat32(ccRandomizer32 *randomizer);
 float ccrGenerateFloat64(ccRandomizer64 *randomizer);
-float ccrGenerateFloatCoordinate(uint32_t seed, int32_t x, int32_t y);
+
 double ccrGenerateDouble32(ccRandomizer32 *randomizer);
 double ccrGenerateDouble64(ccRandomizer64 *randomizer);
-double ccrGenerateDoubleCoordinate(uint32_t seed, int32_t x, int32_t y);
 
 #ifdef __cplusplus
 }
