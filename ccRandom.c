@@ -1,4 +1,4 @@
-#include <ccRandom/ccRandom.h>
+#include "ccRandom.h"
 
 #define CCR_MULTIPLY_32           69069
 #define CCR_ADD_32                1
@@ -35,9 +35,9 @@ uint32_t ccrGenerateInt32(ccRandomizer32 *randomizer, const uint32_t min, const 
 	return CCR_MIN(max, min + (uint32_t)((max - min + 1) * ccrGenerateFloat32(randomizer)));
 }
 
-uint64_t ccrGenerateInt64(ccRandomizer64 *randomizer, const uint64_t min, const uint64_t max)
+uint32_t ccrGenerateInt64(ccRandomizer64 *randomizer, const uint32_t min, const uint32_t max)
 {
-	return CCR_MIN(max, min + (uint64_t)((max - min + 1) * ccrGenerateFloat64(randomizer)));
+	return CCR_MIN(max, min + (uint32_t)((max - min + 1) * ccrGenerateFloat64(randomizer)));
 }
 
 float ccrGenerateFloat32(ccRandomizer32 *randomizer)
@@ -58,4 +58,14 @@ double ccrGenerateDouble32(ccRandomizer32 *randomizer)
 double ccrGenerateDouble64(ccRandomizer64 *randomizer)
 {
 	return (double)CCR_LCG64 / UINT64_MAX;
+}
+
+bool ccrGenerateBool32(ccRandomizer32 *randomizer)
+{
+	return ccrGenerateFloat32(randomizer) > 0.5f;
+}
+
+bool ccrGenerateBool64(ccRandomizer64 *randomizer)
+{
+	return ccrGenerateFloat64(randomizer) > 0.5f;
 }

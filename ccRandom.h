@@ -7,7 +7,7 @@
 //             | (_| (__| | \ \ (_| | | | | (_| | (_) | | | | | |                   //
 //              \___\___|_|  \_\__,_|_| |_|\__,_|\___/|_| |_| |_| 1.1               //
 //                                                                                  //
-//              Copyright (C) 2014 - 2015 \ Job Talle (jobtalle@hotmail.com)        //
+//           Copyright (C) 2014 - 2017 \ Job Talle (jobtalle@hotmail.com)           //
 //__________________________________________________________________________________//
 //                                                                                  //
 //      This program is free software: you can redistribute it and/or modify        //
@@ -20,6 +20,7 @@
 #pragma once
 
 #include <stdint.h>
+#include <stdbool.h>
 
 #ifdef __cplusplus
 extern "C"
@@ -36,13 +37,16 @@ uint32_t ccrGenerateSeed32(ccRandomizer32 *randomizer);
 uint64_t ccrGenerateSeed64(ccRandomizer64 *randomizer);
 
 uint32_t ccrGenerateInt32(ccRandomizer32 *randomizer, const uint32_t min, const uint32_t max);
-uint64_t ccrGenerateInt64(ccRandomizer64 *randomizer, const uint64_t min, const uint64_t max);
+uint32_t ccrGenerateInt64(ccRandomizer64 *randomizer, const uint32_t min, const uint32_t max);
 
 float ccrGenerateFloat32(ccRandomizer32 *randomizer);
 float ccrGenerateFloat64(ccRandomizer64 *randomizer);
 
 double ccrGenerateDouble32(ccRandomizer32 *randomizer);
 double ccrGenerateDouble64(ccRandomizer64 *randomizer);
+
+bool ccrGenerateBool32(ccRandomizer32 *randomizer);
+bool ccrGenerateBool64(ccRandomizer64 *randomizer);
 
 #ifdef __cplusplus
 }
